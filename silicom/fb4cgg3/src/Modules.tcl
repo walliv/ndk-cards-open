@@ -27,7 +27,9 @@ if {$ARCHGRP_ARR(PCIE_ENDPOINT_MODE) == 2} {
 }
 
 # IP sources
-lappend MOD "$ENTITY_BASE/ip/xvc_vsec/xvc_vsec.xci"
+if {$ARCHGRP_ARR(VIRTUAL_DEBUG_ENABLE)} {
+    lappend MOD "$ENTITY_BASE/ip/xvc_vsec/xvc_vsec.xci"
+}
 lappend MOD "$ENTITY_BASE/ip/ddr4_axi/ddr4_axi.xci"
 
 if { $ARCHGRP_ARR(NET_MOD_ARCH) == "40GE"} {

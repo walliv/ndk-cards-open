@@ -36,7 +36,10 @@ if { $ARCHGRP_ARR(NET_MOD_ARCH) == "40GE"} {
     lappend MOD "$ENTITY_BASE/ip/cmac_eth_1x100g/cmac_eth_1x100g.xci"
 }
 
-lappend MOD "$ENTITY_BASE/ip/xvc_vsec/xvc_vsec.xci"
+if {$ARCHGRP_ARR(VIRTUAL_DEBUG_ENABLE)} {
+    lappend MOD "$ENTITY_BASE/ip/xvc_vsec/xvc_vsec.xci"
+}
+
 lappend MOD "$ENTITY_BASE/ip/axi_quad_spi_0/axi_quad_spi_0.xci"
 lappend MOD "$ENTITY_BASE/ip/ddr4_axi/ddr4_axi.xci"
 
